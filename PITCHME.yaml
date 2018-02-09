@@ -3,3 +3,4 @@ theme-override : ~/nethome/mlouboutin3/GATechBundle/ScholarlyMarkdown/css/Schola
 background : images.jpeg
 transition : none
 published : true
+mathjax : TeX-MML-AM_HTMLorMML-full

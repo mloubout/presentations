@@ -13,9 +13,9 @@ author: |
 @title[PITCHME.md]
 
 
-$$
+```math{#FWI}
 	\underset{\mathbf{m}}{\operatorname{minimize}} \hspace{0.2cm} \phi \Big( \mathcal{P}_r \mathbf{A}(\mathbf{m})^{-1} \mathcal{P}_s^\top \mathbf{q} - \mathbf{d}_{obs}  \Big), \\
-$$
+```
 
 ---?code=assets/md/hello.md&title=Step 1. PITCHME.md
 
