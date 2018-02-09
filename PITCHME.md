@@ -1,11 +1,12 @@
 @title[Introduction]
 
-# Git<span class="gold">Pitch</span>
-
-#### Markdown Presentations For Everyone on Git
-<br>
-<br>
-<span class="byline">[ GitHub, GitLab, Bitbucket, GitBucket, Gitea, Gogs ]</span>
+title: Julia Devito``:`` A large-scale framework for symbolic implementions of seismic inversion algorithms
+runninghead: Julia Devito``:`` A seismic inversion framework
+author: |
+	Philipp A. Witte``^1``, Mathias Louboutin``^1``, Gerard Gorman``^2`` and Felix J. Herrmann``^1`` \
+	Seismic Laboratory for Imaging and Modeling (SLIM), University of British Columbia \
+	Imperial College London \
+	Email: pwitte@eoas.ubc.ca; mlouboutin@eoas.ubc.ca; g.gorman@imperial.ac.uk; fherrmann@eoas.ubc.ca
 
 ---
 
