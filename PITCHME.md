@@ -12,19 +12,10 @@ author: |
 
 @title[PITCHME.md]
 
-#### GitPitch turns <span class="gold">PITCHME.md</span> into
-#### interactive,
-#### online and offline slideshows.
-<br>
-<span class="aside">Just like this one...</span>
 
----
-
-#### No more <span class="gray">Keynote</span>.
-#### No more <span class="gray">Powerpoint</span>.
-<br>
-#### Just <span class="gold">Markdown</span>.
-#### Then <span class="gold">Git-Commit</span>.
+```math{#FWI}
+	\underset{\mathbf{m}}{\operatorname{minimize}} \hspace{0.2cm} \phi \Big( \mathcal{P}_r \mathbf{A}(\mathbf{m})^{-1} \mathcal{P}_s^\top \mathbf{q} - \mathbf{d}_{obs}  \Big), \\
+```
 
 ---?code=assets/md/hello.md&title=Step 1. PITCHME.md
 

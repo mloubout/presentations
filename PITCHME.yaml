@@ -1,5 +1,5 @@
-theme : night
-theme-override : /nethome/mlouboutin3/GATechBundle/ScholarlyMarkdown/css/ScholarlyMarkdown-forMarked-latest.css
+theme : moon
+theme-override : ~/nethome/mlouboutin3/GATechBundle/ScholarlyMarkdown/css/ScholarlyMarkdown-forMarked-latest.css
 background : images.jpeg
 transition : none
 published : true
