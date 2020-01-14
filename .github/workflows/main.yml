@@ -1,4 +1,4 @@
-name: CI-core
+name: CI-yask
 
 on:
   # Trigger the workflow on push or pull request,
@@ -11,91 +11,39 @@ on:
       - master
 
 jobs:
-  pytest:
-    name: ${{ matrix.name }}
-    runs-on: ${{ matrix.os }}
+  build:
+    name: pytest-yask
+    runs-on: ubuntu-16.04
 
     env:
-      DEVITO_ARCH: "${{ matrix.arch }}"
-      DEVITO_OPENMP: ${{ matrix.openmp }}
-      DEVITO_BACKEND: "core"
+      DEVITO_ARCH: "gcc-7"
+      DEVITO_OPENMP: 1
+      DEVITO_BACKEND: "yask"
       OMP_NUM_THREADS: 2
-      PYTHON_VERSION: "${{ matrix.python-version }}"
-      TESTS: "tests/"
-
-    strategy:
-      # Prevent all build to stop if a single one fails
-      fail-fast: false
-
-      matrix:
-        name: [
-           py36-gcc49-openmp,
-           py37-gcc5-openmp,
-           py38-gcc6-openmp,
-           py36-gcc7-openmp,
-           py37-gcc7-noopenmp,
-           py37-gcc8-openmp,
-           py38-gcc9-openmp,
-           py37-osx,
-           docker-devito
-        ]
-  
-        include:
-        - name: py36-gcc49-openmp
-          python-version: 3.6
-          os: ubuntu-16.04
-          arch: "gcc-4.9"
-          openmp: 1
-
-        - name: py37-gcc5-openmp
-          python-version: 3.7
-          os: ubuntu-16.04
-          arch: "gcc-5"
-          openmp: 1
-
-        - name: py38-gcc6-openmp
-          python-version: 3.8
-          os: ubuntu-16.04
-          arch: "gcc-6"
-          openmp: 1
-
-        - name: py36-gcc7-openmp
-          python-version: 3.6
-          os: ubuntu-16.04
-          arch: "gcc-7"
-          openmp: 1
-
-        - name: py37-gcc7-noopenmp
-          python-version: 3.7
-          os: ubuntu-16.04
-          arch: "gcc-7"
-          openmp: 0
-
-        - name: py37-gcc8-openmp
-          python-version: 3.7
-          os: ubuntu-16.04
-          arch: "gcc-8"
-          openmp: 1
-
-        - name: py38-gcc9-openmp
-          python-version: 3.8
-          os: ubuntu-16.04
-          arch: "gcc-9"
-          openmp: 1
-
-        - name: py37-clang-osx
-          python-version: 3.7
-          os: macos-latest
-          arch: "osx"
-          openmp: 0
-
-        - name: docker-devito
-          python-version: 3.6
-          os: ubuntu-16.04
-          arch: "gcc"
-          openmp: 1
+      CC: "gcc-7"
+      CXX: "g++-7"
+      YC_CC: "gcc-7"
+      YC_CXX: "g++-7"
+      PYTHON_VERSION: "3.7"
 
     steps:
-    - name: check
-      run: |
-        printenv
+    - name: Checkout devito
+      uses: actions/checkout@v1
+
+    - name: Set up Python 3.7
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.7
+
+    - name: Checkout yask
+      uses: actions/checkout@v2
+      with:
+        repository: devitocodes/yask
+        path: yask
+
+    - name: Install yask
+      run : |
+        sudo apt-get install -y swig
+        make compiler-api
+        pip install -e .
+      working-directory: yask
