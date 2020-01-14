@@ -39,6 +39,7 @@ jobs:
            py37-osx,
            docker-devito
         ]
+  
         include:
         - name: py36-gcc49-openmp
           python-version: 3.6
