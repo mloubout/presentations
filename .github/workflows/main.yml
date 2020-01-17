@@ -13,7 +13,11 @@ on:
 jobs:
   build:
     name: check-python
-    runs-on: macos-latest
+    runs-on: ${{ matrix.os}}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
 
     steps:
     - name: Checkout devito
