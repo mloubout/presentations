@@ -32,3 +32,4 @@ jobs:
       run: |
         type -a python
         type -a python3
+        /usr/bin/python --version
