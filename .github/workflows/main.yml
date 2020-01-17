@@ -30,6 +30,5 @@ jobs:
 
     - name: python
       run: |
-        type -a python
-        type -a python3
-        /usr/bin/python --version
+        which python
+        python --version
